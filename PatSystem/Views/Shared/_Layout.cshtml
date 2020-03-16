@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+@await Html.PartialAsync("PartialViews/_Head")
+
+@await Html.PartialAsync("PartialViews/_Header")
+
+<body>
+    @await Html.PartialAsync("PartialViews/_SideBar")
+    <div class="w3-container" style="margin-left:18%;">
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+
+    
+</body>
+</html>

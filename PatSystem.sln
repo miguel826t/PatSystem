@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatSystem", "PatSystem\PatSystem.csproj", "{B9787B3D-EDD1-4BEB-87CB-21280AF10037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9787B3D-EDD1-4BEB-87CB-21280AF10037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9787B3D-EDD1-4BEB-87CB-21280AF10037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9787B3D-EDD1-4BEB-87CB-21280AF10037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9787B3D-EDD1-4BEB-87CB-21280AF10037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B8A69D9-22C2-448B-911F-16C915A9A2F6}
+	EndGlobalSection
+EndGlobal

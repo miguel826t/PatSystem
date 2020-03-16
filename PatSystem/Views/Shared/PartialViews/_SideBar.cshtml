@@ -1,0 +1,14 @@
+﻿
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="~/css/SystemCss.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<div class="w3-sidebar w3-bar-block " style="width:18%; background: #001568;">
+    <a class="navbar-brand bg-white w3-left-align m-0"  asp-controller="Home" asp-action="Index">
+        <img src="~/Imgs/teste2.jpg" width="50%" height="50%" />
+    </a>
+    @*<a class="w3-bar-item w3-button SideBar-lyrics" asp-controller="Home" asp-action="Index"><h2><i class="fas fa-home mr-2"></i>Menu</h2></a>*@
+    <a class="w3-bar-item w3-button SideBar-lyrics" asp-controller="Curriculo" asp-action="Index"><i class="fas fa-clipboard-list mr-2"></i>Curriculo</a>
+    <a class="w3-bar-item w3-button SideBar-lyrics" asp-controller="SegDesemprego" asp-action="Index"><i class="fas fa-business-time mr-2"></i>Seguro Desemprego</a>
+    <a class="w3-bar-item w3-button SideBar-lyrics" asp-controller="Home" asp-action="Contato"><i class="fas fa-exclamation-circle mr-2"></i>Contato</a>
+</div>
