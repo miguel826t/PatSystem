@@ -1,17 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
+
 @await Html.PartialAsync("PartialViews/_Head")
 
-@await Html.PartialAsync("PartialViews/_Header")
 
-<body>
+<body id="page-top" class="w3-white">
     @await Html.PartialAsync("PartialViews/_SideBar")
-    <div class="w3-container" style="margin-left:18%;">
-        @RenderBody()
+
+    <div class="container-fluid">
+        <div id="content-wrapper" class="d-flex flex-column">
+            @await Html.PartialAsync("PartialViews/_Header")
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
     </div>
-
-    @RenderSection("Scripts", required: false)
-
     
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

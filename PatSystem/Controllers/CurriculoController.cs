@@ -33,9 +33,17 @@ namespace PatSystem.Controllers
         }
         #endregion
 
-
-        #region Index
+        #region PrincipalIndex
         public async Task<IActionResult> IndexAsync()
+        {
+           
+
+            return View();
+        }
+        #endregion
+
+        #region List
+        public async Task<IActionResult> ListAsync()
         {
             var curriculos = await _curriculoService.FindAllAsync();
             var clientes = await _clienteService.FindAllAsync();
