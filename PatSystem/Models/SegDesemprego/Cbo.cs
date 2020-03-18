@@ -9,7 +9,6 @@ namespace PatSystem.Models.SegDesemprego
     public class Cbo
     {
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [Range(4, 10)]
         public int CodCboId { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
