@@ -17,6 +17,6 @@ namespace PatSystem.Models.SegDesemprego
         public string Segmento { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        public int CnpjId { get; set; }
+        public string CnpjId { get; set; }
     }
 }

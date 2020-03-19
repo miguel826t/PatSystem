@@ -131,7 +131,7 @@ namespace PatSystem.Controllers
             idioma.CurriculoID = curriculo.CurriculoID;
            await _idiomaService.InsertAsync(idioma);
            
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         #endregion

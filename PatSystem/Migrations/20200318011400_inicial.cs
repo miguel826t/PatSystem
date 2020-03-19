@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PatSystem.Migrations
 {
-    public partial class Initial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,15 +50,15 @@ namespace PatSystem.Migrations
                 name: "Empresa",
                 columns: table => new
                 {
-                    EmpresaId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EmpresaId = table.Column<int>(nullable: false),
+                        
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Segmento = table.Column<string>(nullable: true),
-                    CnpjId = table.Column<int>(nullable: false)
+                    CnpjId = table.Column<string>(maxLength:100,nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Empresa", x => x.EmpresaId);
+                    table.PrimaryKey("PK_Empresa", x => x.CnpjId);
                 });
 
             migrationBuilder.CreateTable(
@@ -93,7 +93,7 @@ namespace PatSystem.Migrations
                     CodSeguro = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     CodCboid = table.Column<int>(nullable: false),
-                    CnpjId = table.Column<int>(nullable: false)
+                    CnpjId = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,8 +102,8 @@ namespace PatSystem.Migrations
                         name: "FK_Seguro_Empresa_CnpjId",
                         column: x => x.CnpjId,
                         principalTable: "Empresa",
-                        principalColumn: "EmpresaId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CnpjId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Seguro_Cbo_CodCboid",
                         column: x => x.CodCboid,

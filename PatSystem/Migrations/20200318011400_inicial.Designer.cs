@@ -9,8 +9,8 @@ using PatSystem.Data;
 namespace PatSystem.Migrations
 {
     [DbContext(typeof(PatSystemContext))]
-    [Migration("20200315005218_Initial")]
-    partial class Initial
+    [Migration("20200318011400_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -237,8 +237,9 @@ namespace PatSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CnpjId")
-                        .HasColumnType("int");
+                    b.Property<string>("CnpjId")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -259,8 +260,12 @@ namespace PatSystem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CnpjId")
+                    b.Property<int?>("CnpjEmpresaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("CnpjId")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("CodCboid")
                         .HasColumnType("int");
@@ -273,7 +278,7 @@ namespace PatSystem.Migrations
 
                     b.HasKey("SeguroId");
 
-                    b.HasIndex("CnpjId");
+                    b.HasIndex("CnpjEmpresaId");
 
                     b.HasIndex("CodCboid");
 
@@ -329,9 +334,7 @@ namespace PatSystem.Migrations
                 {
                     b.HasOne("PatSystem.Models.SegDesemprego.Empresa", "Cnpj")
                         .WithMany()
-                        .HasForeignKey("CnpjId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CnpjEmpresaId");
 
                     b.HasOne("PatSystem.Models.SegDesemprego.Cbo", "CodCbo")
                         .WithMany()

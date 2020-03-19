@@ -24,10 +24,7 @@ namespace PatSystem.Models.SegDesemprego
         public Cbo CodCbo { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [Range(5, 40)]
-        public int CnpjId { get; set; }
+        public string CnpjId { get; set; }
         public Empresa Cnpj { get; set; }
-
-
     }
 }
