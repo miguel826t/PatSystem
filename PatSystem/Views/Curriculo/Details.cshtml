@@ -15,8 +15,8 @@
             <a class="float-lg-right" asp-action="Edit" asp-route-id="@Model.Curriculo.CurriculoID"><img src="~/Imgs/EditarCad.png" width="40" height="35" /></a>
         </b>
     </h4>
-
 </nav>
+
 
 <div class="row ml-lg-5 pt-5">
     <div class="col-3 ml-lg-4 mr-3 border-dark border-right">
@@ -55,6 +55,7 @@
 </div>
 <br>
 <hr />
+
 <div class="row ml-lg-5 pt-4">
     <div class="col-3 ml-lg-4 mr-3 border-dark border-right">
         <h4>Informações Para Contato</h4>
@@ -86,6 +87,7 @@
 </div>
 <br>
 <hr />
+
 <div class="row ml-lg-5 pt-4">
     <div class="col-3 ml-lg-4 mr-3 border-dark border-right">
         <h4>Endereço</h4>
@@ -129,6 +131,7 @@
 </div>
 <br>
 <hr />
+
 @foreach (var curso in Model.CursosTecnico)
 {
     <div class="row ml-lg-5 pt-4">
@@ -174,8 +177,8 @@
     </div>
     <br>
 }
-
 <hr />
+
 @foreach (var curso in Model.CursosSuperior)
 {
     <div class="row ml-lg-5 pt-4">
@@ -221,7 +224,6 @@
     </div>
     <br>
 }
-
 <hr />
 
 @foreach (var idioma in Model.Idiomas)
@@ -263,7 +265,6 @@
     </div>
     <br>
 }
-
 <hr />
 
 @foreach (var experiencia in Model.Experiencias)
@@ -287,10 +288,10 @@
                     <dd class="col-9">
                         @Html.DisplayFor(model => experiencia.UltimoCargo)
                     </dd>
-                    <dt class="col-3">
+                    <dt class="col-4 ">
                         @Html.DisplayNameFor(model => experiencia.Anos)
                     </dt>
-                    <dd class="col-9">
+                    <dd class="col-8">
                         @Html.DisplayFor(model => experiencia.Anos)
                     </dd>
                     <dt class="col-3">
@@ -305,6 +306,7 @@
     </div>
     <br>
 }
+
 
 <nav class="nav justify-content-md-center p-1 mr-lg-5 ml-lg-5" style="background-color:orange">
     <a class="btn btn-info mr-2" asp-action="Index">Voltar</a>
