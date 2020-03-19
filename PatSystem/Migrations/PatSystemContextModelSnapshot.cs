@@ -231,13 +231,8 @@ namespace PatSystem.Migrations
 
             modelBuilder.Entity("PatSystem.Models.SegDesemprego.Empresa", b =>
                 {
-                    b.Property<int>("EmpresaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("CnpjId")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<string>("EmpresaId")
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -254,31 +249,29 @@ namespace PatSystem.Migrations
 
             modelBuilder.Entity("PatSystem.Models.SegDesemprego.Seguro", b =>
                 {
-                    b.Property<int>("SeguroId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CnpjEmpresaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CnpjId")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                    b.Property<double>("SeguroId")
+                        .HasColumnType("double");
 
                     b.Property<int>("CodCboid")
                         .HasColumnType("int");
 
-                    b.Property<int>("CodSeguro")
-                        .HasColumnType("int");
+                    b.Property<string>("CodSeguro")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("EmpresaId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("SeguroId");
 
-                    b.HasIndex("CnpjEmpresaId");
-
                     b.HasIndex("CodCboid");
+
+                    b.HasIndex("EmpresaId");
 
                     b.ToTable("Seguro");
                 });
@@ -330,13 +323,15 @@ namespace PatSystem.Migrations
 
             modelBuilder.Entity("PatSystem.Models.SegDesemprego.Seguro", b =>
                 {
-                    b.HasOne("PatSystem.Models.SegDesemprego.Empresa", "Cnpj")
-                        .WithMany()
-                        .HasForeignKey("CnpjEmpresaId");
-
                     b.HasOne("PatSystem.Models.SegDesemprego.Cbo", "CodCbo")
                         .WithMany()
                         .HasForeignKey("CodCboid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PatSystem.Models.SegDesemprego.Empresa", "Cnpj")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

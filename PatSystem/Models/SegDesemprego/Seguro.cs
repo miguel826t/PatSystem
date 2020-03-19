@@ -8,23 +8,23 @@ namespace PatSystem.Models.SegDesemprego
 {
     public class Seguro
     {
-        public int SeguroId { get; set; }
+        [Required(ErrorMessage = "{0} é Obrigatório")]
+        public double SeguroId { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [Range(10, 10)]
-        public int CodSeguro { get; set; }
+        public string CodSeguro { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [Range(4, 6)]
         public int CodCboid { get; set; }
         public Cbo CodCbo { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        public string CnpjId { get; set; }
+        public string EmpresaId { get; set; }
         public Empresa Cnpj { get; set; }
+
+
     }
 }
