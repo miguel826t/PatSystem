@@ -9,9 +9,15 @@
     <Compile Remove="Migrations\20200315004713_inicial.Designer.cs" />
     <Compile Remove="Migrations\20200315005218_Initial.cs" />
     <Compile Remove="Migrations\20200315005218_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200318011400_inicial.cs" />
+    <Compile Remove="Migrations\20200318011400_inicial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\demo\chart-area-demo.js" />
+    <None Include="wwwroot\js\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\js\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\js\demo\datatables-demo.js" />
     <None Include="wwwroot\Layout\vendor\bootstrap\js\bootstrap.bundle.js" />
     <None Include="wwwroot\Layout\vendor\bootstrap\js\bootstrap.bundle.js.map" />
     <None Include="wwwroot\Layout\vendor\bootstrap\js\bootstrap.bundle.min.js" />

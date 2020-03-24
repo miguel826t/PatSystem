@@ -13,7 +13,7 @@ namespace PatSystem.Models.ViewModels
 
         [Display(Name = "Data")]
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Display(Name = "Profissão")]
         public string Profissao { get; set; }

@@ -16,6 +16,7 @@ namespace PatSystem.Models.Curriculo
         public string CursoSuperiorSN { get; set; }
         public string CursoTecnicoSN { get; set; }
         public string IdiomaSN { get; set; }
+        public string ExperienciaSN { get; set; }
 
     }
 }

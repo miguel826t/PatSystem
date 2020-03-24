@@ -36,8 +36,6 @@ namespace PatSystem.Controllers
         #region PrincipalIndex
         public async Task<IActionResult> IndexAsync()
         {
-           
-
             return View();
         }
         #endregion
@@ -61,7 +59,8 @@ namespace PatSystem.Controllers
                            EnsinoMedio = cl.EnsinoMedio,
                            CursoTecnicoSN = cr.CursoTecnicoSN,
                            CursoSuperiorSN = cr.CursoSuperiorSN,
-                           IdiomaSN = cr.IdiomaSN
+                           IdiomaSN = cr.IdiomaSN,
+                           ExperienciaSN = cr.ExperienciaSN
                        };
 
             return View(join);
@@ -117,6 +116,14 @@ namespace PatSystem.Controllers
             {
                 curriculo.IdiomaSN = "Sim";
             }
+            if (createViewModel.Experiencia.NomeEmpresa == string.Empty)
+            {
+                curriculo.ExperienciaSN = "Não";
+            }
+            else
+            {
+                curriculo.ExperienciaSN = "Sim";
+            }
 
            await _curriculoService.InsertAsync(curriculo);
             cursoSuperior.CurriculoID = curriculo.CurriculoID;
@@ -137,7 +144,7 @@ namespace PatSystem.Controllers
         #endregion
 
         #region Edit
-        ////Get
+        //Get
         //public async Task<IActionResult> EditAsync(int? id)
         //{
         //    return View();

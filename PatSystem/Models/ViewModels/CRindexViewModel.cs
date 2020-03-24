@@ -31,7 +31,10 @@ namespace PatSystem.Models.ViewModels
         public string CursoTecnicoSN { get; set; }
 
         [Display(Name = "Idiomas")]
-        public string IdiomaSN { get; set; }
+        public string IdiomaSN { get; set; }   
+
+        [Display(Name = "Experiencia")]
+        public string ExperienciaSN { get; set; }
 
     }
 }

@@ -21,14 +21,12 @@ namespace PatSystem.Models.Curriculo
 
         [Display(Name = "Tl. Fixo")]
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [DataType(DataType.PhoneNumber)]
-        public int TlFixo { get; set; }
+        public string TlFixo { get; set; }
 
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Celular")]
-        public int TlMovel { get; set; }
+        public string TlMovel { get; set; }
 
         [EmailAddress(ErrorMessage = "Insira um E-mail valido")]
         [Required(ErrorMessage = "{0} é Obrigatório")]

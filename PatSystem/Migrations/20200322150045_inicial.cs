@@ -29,8 +29,8 @@ namespace PatSystem.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(maxLength: 40, nullable: false),
                     Nascimento = table.Column<DateTime>(nullable: false),
-                    TlFixo = table.Column<int>(nullable: false),
-                    TlMovel = table.Column<int>(nullable: false),
+                    TlFixo = table.Column<string>(nullable: false),
+                    TlMovel = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     AreaAtuacao = table.Column<string>(maxLength: 30, nullable: false),
                     EnsinoMedio = table.Column<string>(nullable: false),
@@ -50,15 +50,13 @@ namespace PatSystem.Migrations
                 name: "Empresa",
                 columns: table => new
                 {
-                    EmpresaId = table.Column<int>(nullable: false),
-                        
+                    EmpresaId = table.Column<string>(nullable: false),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
-                    Segmento = table.Column<string>(nullable: true),
-                    CnpjId = table.Column<string>(maxLength:100,nullable: false).Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                    Segmento = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Empresa", x => x.CnpjId);
+                    table.PrimaryKey("PK_Empresa", x => x.EmpresaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,7 +69,8 @@ namespace PatSystem.Migrations
                     DataCriacao = table.Column<DateTime>(nullable: false),
                     CursoSuperiorSN = table.Column<string>(nullable: true),
                     CursoTecnicoSN = table.Column<string>(nullable: true),
-                    IdiomaSN = table.Column<string>(nullable: true)
+                    IdiomaSN = table.Column<string>(nullable: true),
+                    ExperienciaSN = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -88,27 +87,26 @@ namespace PatSystem.Migrations
                 name: "Seguro",
                 columns: table => new
                 {
-                    SeguroId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CodSeguro = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
+                    SeguroId = table.Column<double>(nullable: false),
+                    CodSeguro = table.Column<string>(nullable: false),
+                    Date = table.Column<string>(nullable: false),
                     CodCboid = table.Column<int>(nullable: false),
-                    CnpjId = table.Column<string>(maxLength: 100, nullable: false)
+                    EmpresaId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Seguro", x => x.SeguroId);
                     table.ForeignKey(
-                        name: "FK_Seguro_Empresa_CnpjId",
-                        column: x => x.CnpjId,
-                        principalTable: "Empresa",
-                        principalColumn: "CnpjId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Seguro_Cbo_CodCboid",
                         column: x => x.CodCboid,
                         principalTable: "Cbo",
                         principalColumn: "CodCboId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Seguro_Empresa_EmpresaId",
+                        column: x => x.EmpresaId,
+                        principalTable: "Empresa",
+                        principalColumn: "EmpresaId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -208,14 +206,14 @@ namespace PatSystem.Migrations
                 column: "ClienteID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Seguro_CnpjId",
-                table: "Seguro",
-                column: "CnpjId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Seguro_CodCboid",
                 table: "Seguro",
                 column: "CodCboid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Seguro_EmpresaId",
+                table: "Seguro",
+                column: "EmpresaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -239,10 +237,10 @@ namespace PatSystem.Migrations
                 name: "Curriculo");
 
             migrationBuilder.DropTable(
-                name: "Empresa");
+                name: "Cbo");
 
             migrationBuilder.DropTable(
-                name: "Cbo");
+                name: "Empresa");
 
             migrationBuilder.DropTable(
                 name: "Cliente");

@@ -64,11 +64,13 @@ namespace PatSystem.Migrations
                         .HasColumnType("varchar(40) CHARACTER SET utf8mb4")
                         .HasMaxLength(40);
 
-                    b.Property<int>("TlFixo")
-                        .HasColumnType("int");
+                    b.Property<string>("TlFixo")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("TlMovel")
-                        .HasColumnType("int");
+                    b.Property<string>("TlMovel")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UF")
                         .IsRequired()
@@ -96,6 +98,9 @@ namespace PatSystem.Migrations
 
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ExperienciaSN")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("IdiomaSN")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
