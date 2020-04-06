@@ -11,12 +11,12 @@ namespace PatSystem.Models.ViewModels
     {
         public Cliente Cliente { get; set; }
         public CursoSuperior CursoSuperior { get; set; }
-        public IEnumerable<CursoSuperior> CursosSuperior { get; set; }
+        public List<CursoSuperior> CursosSuperior { get; set; }
         public CursoTecnico CursoTecnico { get; set; }
-        public IEnumerable<CursoTecnico> CursosTecnico { get; set; }
+        public List<CursoTecnico> CursosTecnico { get; set; }
         public Experiencia Experiencia { get; set; }
-        public IEnumerable<Experiencia> Experiencias { get; set; }
+        public List<Experiencia> Experiencias { get; set; }
         public Idioma Idioma { get; set; }
-        public IEnumerable<Idioma> Idiomas { get; set; }
+        public List<Idioma> Idiomas { get; set; }
     }
 }
